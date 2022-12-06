@@ -12,7 +12,7 @@ class Navbar extends React.Component {
               <NavLink to="/">
                 <p className="section-title">Home page</p>
               </NavLink>
-              <NavLink to="/products" activestyle={{ color: "white" }}>
+              <NavLink to="/allproducts" activestyle={{ color: "white" }}>
                 <p className="section-title">View all products</p>
               </NavLink>
             
