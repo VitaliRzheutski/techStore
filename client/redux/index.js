@@ -1,6 +1,11 @@
+import productsReducer from "./allProducts";
+import { combineReducers } from 'redux';
 
-function dummyReducer (state = {}, action) {
-    return state;
-}
 
-export default dummyReducer
+const appReducer = combineReducers({
+    products:productsReducer,
+
+   
+   })
+   
+   export default appReducer

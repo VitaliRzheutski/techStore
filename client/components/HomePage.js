@@ -1,6 +1,5 @@
 import React from "react";
 const HomePage = () => {
-  console.log("Vit")
   return (
     <div className="homePage">
       <main>

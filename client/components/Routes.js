@@ -13,7 +13,7 @@ class Routess extends React.Component {
         <Navbar />
         <Routes>
           <Route exact path="/" element={<HomePage />} />
-          <Route path="allproducts" element={<AllProducts />} />
+          <Route path="products" element={<AllProducts />} />
         </Routes>
       </div>
     );
