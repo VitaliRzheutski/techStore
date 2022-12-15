@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-
 import { fetchProductsThunk } from "../redux/allProducts";
 
 const AllProducts = (props) => {
 
   let allProducts = props.products;
-
+console.log('props:',props)
   useEffect(() => {
     props.loadProducts();
   }, []);
@@ -24,6 +23,7 @@ const AllProducts = (props) => {
         </div>
       ))}
     </div>
+    
   );
 };
 
