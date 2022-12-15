@@ -1,47 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 import { fetchProductsThunk } from "../redux/allProducts";
 
-// export class AllProducts extends React.Component {
-//   constructor() {
-//     super();
-//   }
-//   componentDidMount() {
-//     this.props.loadProducts();
-//   }
-//   // useEffect(() => {
-//   //   // Update the document title using the browser API
-//   //   this.props.loadProducts();
-//   // });
-//   render() {
-//     const products = this.props.products;
-//     console.log('products:',products)
-//     return (
-//       <div>
-
-//        <div>All products</div>
-//       </div>
-//     );
-//   }
-// }
-// const mapState = (state) => {
-//   return {
-//     products: state.products,
-//   };
-// };
-// const mapDispatch = (dispatch) => {
-//   return {
-//     loadProducts: () => dispatch(fetchProductsThunk()),
-//   };
-// };
-// export default connect(mapState, mapDispatch)(AllProducts);
-
 const AllProducts = (props) => {
-  console.log("props:", props);
 
   let allProducts = props.products;
-  console.log("allProducts:", allProducts);
 
   useEffect(() => {
     props.loadProducts();
@@ -50,9 +15,13 @@ const AllProducts = (props) => {
   return (
     <div className="allCards">
       {allProducts.map((product) => (
-        <ul>
-          <li>{product.productName}</li>
-        </ul>
+        <div className="singleCard" key={product.id}>
+          <Link to={`/products/${product.id}`}>
+            <img src={product.imageUrl} />
+            <p id=""> {product.productName}</p>
+            <p id="">Price: ${product.price}</p>
+          </Link>
+        </div>
       ))}
     </div>
   );
@@ -60,7 +29,7 @@ const AllProducts = (props) => {
 
 const mapState = (state) => {
   return {
-    products: state.products,
+    products: state.allProducts,
   };
 };
 const mapDispatch = (dispatch) => {

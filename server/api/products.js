@@ -15,7 +15,7 @@ const isAdminMiddleware = (req, res, next) => {
 router.get("/", async (req, res, next) => {
   try {
     const products = await Product.findAll();
-    console.log('!!!!Products')
+    // console.log('!!!!Products')
     res.send(products);
   } catch (error) {
     next(error);
@@ -25,7 +25,9 @@ router.get("/", async (req, res, next) => {
 //get single ptoduct
 router.get("/:id", async (req, res, next) => {
   try {
+    // console.log('!!!!Product')
     const product = await Product.findByPk(req.params.id);
+    // console.log('product',product)
     res.json(product);
   } catch (error) {
     next(error);

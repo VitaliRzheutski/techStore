@@ -21,7 +21,6 @@ router.get("/", async (req, res, next) => {
         model: Order,
       },
     });
-    console.log('users:',users)
     res.json(users);
   } catch (error) {
     next(error);

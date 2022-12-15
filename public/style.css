@@ -82,3 +82,21 @@
     height: 550px;
     width: 900px;
   }
+
+  .singleCard {
+    width: 300px;
+    height: 350px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    flex: 20%;
+  }
+
+  .singleCard img {
+    width: 180px;
+    height: 200px;
+  }

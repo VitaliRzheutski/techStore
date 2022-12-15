@@ -1,9 +1,13 @@
 import productsReducer from "./allProducts";
+import singleProductReducer from "./singleProduct";
+import usersReducer from "./allUsers";
 import { combineReducers } from 'redux';
 
 
 const appReducer = combineReducers({
-    products:productsReducer,
+    allProducts:productsReducer,
+    singleProduct:singleProductReducer,
+    allUsers:usersReducer
 
    
    })
