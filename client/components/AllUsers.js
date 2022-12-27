@@ -10,19 +10,22 @@ const AllUsers = (props) => {
   }, []);
 
   return (
-    <div className="">
-      <p>List of users:</p>
-      <ol>
+    <div>
+      <h3 id="users-title">There are {users.length} users:</h3>
+      <div className="users">
         {props.users.map((user) => (
-          <div className="" key={user.id}>
-            <li>
+          <div className="singleUser" key={user.id}>
+            <img
+              className="img-user "
+              src="https://e7.pngegg.com/pngimages/113/20/png-clipart-computer-icons-icon-design-others-public-relations-business.png"
+            />
+            <h3>
               {user.firstName} {user.lastName}
-              <p>{user.email}</p>
-            </li>
+            </h3>
+            <p>{user.email}</p>
           </div>
         ))}
-      </ol>
-      <p>Total users: {users.length}</p>
+      </div>
     </div>
   );
 };
