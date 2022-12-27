@@ -1,6 +1,5 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-
 class Navbar extends React.Component {
   render() {
     return (
@@ -9,14 +8,14 @@ class Navbar extends React.Component {
           <div className="left-side">
             {/* The navbar will show these links after you log in */}
             <NavLink to="/">
-              <p className="section-title">Home page</p>
+              <p className="section-title">Home</p>
             </NavLink>
             <NavLink to="/products" activestyle={{ color: "white" }}>
-              <p className="section-title">View all products</p>
+              <p className="section-title">All products</p>
             </NavLink>
 
             <NavLink to="/users" activestyle={{ color: "white" }}>
-              <p className="section-title">ViewUsers</p>
+              <p className="section-title">Users</p>
             </NavLink>
           </div>
 
@@ -27,8 +26,8 @@ class Navbar extends React.Component {
           </div>
         </div>
       </nav>
+    
     );
   }
 }
-
 export default Navbar;

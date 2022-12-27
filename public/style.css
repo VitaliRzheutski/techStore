@@ -1,22 +1,29 @@
 * {
   box-sizing: border-box;
   font-family: arial, sans-serif;
-}
-body {
-  height: 100%;
+  box-sizing: border-box;
   padding: 0;
   margin: 0;
-  width: 100vw;
+  scroll-behavior: smooth;
+}
+body {
+
 }
 nav {
   align-items: center;
   background-color: #333333;
   color: #c0c0c0;
-  padding-top: 10px;
+  padding-top: 25px;
+  padding-bottom: 25px
 }
 #main {
   width: 80%;
   margin: auto auto;
+}
+@media screen and (max-width: 600px) {
+  #main {
+    width: 100%;
+  }
 }
 main {
   align-items: center;
@@ -45,6 +52,8 @@ form {
   display: flex;
   justify-content: space-between;
 }
+
+
 #navbar a {
   color: grey;
   text-decoration: none;
@@ -247,6 +256,11 @@ body {
   border-radius: 5px;
   flex: 20%;
 }
+@media screen and (max-width: 992px) {
+  .singleCard {
+   margin-right: 0px;
+  }
+}
 .singleCard a {
   text-decoration: none;
 }
@@ -258,7 +272,6 @@ body {
   height: 200px;
 }
 
-/* ----------------- */
 .allCardsUsers {
   display: flex;
   flex-direction: column;
@@ -270,7 +283,7 @@ body {
 .singleCardUsers:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
-/* //////////////// */
+
 #product-name-text {
   margin-top: 10px;
   margin-bottom: 5px;
@@ -324,6 +337,16 @@ body {
 }
 #navbar :last-child {
   margin-right: 20px;
+}
+@media screen and (max-width: 600px) {
+  #navbar :first-child{
+    margin-left: 5px;
+  }
+}
+@media screen and (max-width: 600px) {
+  #navbar :last-child{
+    margin-right: 5px;
+  }
 }
 .loginSignUp a {
   text-decoration: none;
@@ -486,7 +509,7 @@ input::-webkit-inner-spin-button {
   color: #fdcc49;
 }
 
-/* Checkout form */
+
 
 .popup {
   top: 0;

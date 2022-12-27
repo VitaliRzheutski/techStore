@@ -6,7 +6,6 @@ import { fetchProductsThunk } from "../redux/allProducts";
 const AllProducts = (props) => {
 
   let allProducts = props.products;
-console.log('props:',props)
   useEffect(() => {
     props.loadProducts();
   }, []);
