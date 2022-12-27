@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { fetchSingleProduct } from "../redux/singleProduct";
 import { useParams } from "react-router-dom";
+import UpdateProduct from "./UpdateProduct";
 
 const SingleProduct = (props) => {
   const params = useParams();
@@ -12,19 +13,8 @@ const SingleProduct = (props) => {
 
   const singleProduct = props.singleProduct;
   return (
-    // <div className="product-details">
-    //   <div id="container">
-    //     <div className="">
-    //       <h1>{singleProduct.productName}</h1>
-    //       <p className="">{singleProduct.description}</p>
-    //     </div>
-    //     <div className="">
-    //       <img src={singleProduct.imageUrl} alt="" />
-    //     </div>
-    //   </div>
-    // </div>
-
-    <div id="container">
+<div>
+  <div id="container">
           <div className="product-details">
             <h1>{singleProduct.productName}</h1>
             <p className="information">{singleProduct.description}</p>
@@ -44,7 +34,12 @@ const SingleProduct = (props) => {
           <div className="product-image">
             <img src={singleProduct.imageUrl} alt="" />
           </div>
+
         </div>
+        <UpdateProduct/>
+
+</div>
+    
   );
 };
 
