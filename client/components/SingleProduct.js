@@ -13,33 +13,26 @@ const SingleProduct = (props) => {
 
   const singleProduct = props.singleProduct;
   return (
-<div>
-  <div id="container">
-          <div className="product-details">
-            <h1>{singleProduct.productName}</h1>
-            <p className="information">{singleProduct.description}</p>
-            <div className="control">
-              <button
-                className="btn"
-                // onClick={() => this.props.addProduct(singleProduct)}
-              >
-                <span className="price">${singleProduct.price}</span>
-                <span className="shopping-cart">
-                  <i className="fa fa-shopping-cart" aria-hidden="true"></i>
-                </span>
-                <span className="buy">Add to cart</span>
-              </button>
-            </div>
-          </div>
+    <div>
+      <div id="container">
+      <h1>{singleProduct.productName}</h1>
+
+        <div className="product-details">
+          <p className="information">{singleProduct.description}</p>
+
           <div className="product-image">
             <img src={singleProduct.imageUrl} alt="" />
           </div>
-
+          
+            
+          
         </div>
-        <UpdateProduct/>
-
-</div>
-    
+        <button>
+              <span className="">Add to cart</span>
+            </button>
+      </div>
+      <UpdateProduct />
+    </div>
   );
 };
 
