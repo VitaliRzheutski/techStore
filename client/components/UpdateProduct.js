@@ -33,7 +33,6 @@ class UpdateProduct extends React.Component {
   }
 
   render() {
-    console.log('props from UpdateProduct',this.props)
     return (
       <div id="container1">
         <div id="updateprod">Update Product:</div>
@@ -92,7 +91,6 @@ class UpdateProduct extends React.Component {
 }
 
 const mapState = (state) => {
-  console.log('state from UpdateProduct',state)
   return {
     product: state.singleProduct
   }

@@ -24,6 +24,11 @@ class Navbar extends React.Component {
               <p className="section-title">Cart</p>
             </NavLink>
           </div>
+          <div className="right-side">
+            <NavLink to="/signup" activestyle={{ color: "white" }}>
+              <p className="section-title">SignUp</p>
+            </NavLink>
+          </div>
         </div>
       </nav>
     

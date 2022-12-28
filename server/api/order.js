@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Order, OrderDetail, Product } = require("../db");
+const { Order, orderDetail, Product } = require("../db");
 module.exports = router;
 
 //gets the cart
@@ -14,11 +14,11 @@ router.get("/", async (req, res, next) => {
       },
       
     });
-    console.log('findOrder:',findOrder)
+    // console.log('findOrder:',findOrder)
     
     // in case there's only one product left in order(cart) => check if the order needs to be deleted(in case of no items in the cart)
     if (findOrder.length === 1) {
-      const details = await OrderDetail.findOne({
+      const details = await orderDetail.findOne({
         where: {
           orderId: findOrder[0].dataValues.id,
         },
@@ -41,6 +41,8 @@ router.get("/", async (req, res, next) => {
 // to ADD a product to the cart
 router.post("/", async (req, res, next) => {
   try {
+    console.log('req.user',req.user)
+    console.log('req.body',req.body)
     const [findOrder, created] = await Order.findOrCreate({
       where: {
         userId: req.user.id,
@@ -48,6 +50,8 @@ router.post("/", async (req, res, next) => {
       },
       include: { model: Product },
     });
+    console.log('findOrder POST:',findOrder)
+    
     const orderId = findOrder.id;
     const productId = req.body.productId.id;
     const productPrice = req.body.productId.price;
@@ -56,9 +60,10 @@ router.post("/", async (req, res, next) => {
         id: productId,
       },
     });
+    console.log('product POST:',product)
     let q = product.quantity;
 
-    const findOrderDetail = await OrderDetail.findOne({
+    const findOrderDetail = await orderDetail.findOne({
       where: {
         orderId: orderId,
         productId: productId,
@@ -117,7 +122,7 @@ router.put("/decrease/:productId", async (req, res, next) => {
     let q = product.quantity;
     //should finish  with updating db after increase$ decrease
 
-    const oneProduct = await OrderDetail.findOne({
+    const oneProduct = await orderDetail.findOne({
       where: {
         productId: req.params.productId,
       },
@@ -155,7 +160,7 @@ router.put("/increase/:productId", async (req, res, next) => {
       },
     });
 
-    const oneProduct = await OrderDetail.findOne({
+    const oneProduct = await orderDetail.findOne({
       where: {
         productId: req.params.productId,
       },

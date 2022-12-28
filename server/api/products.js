@@ -37,6 +37,7 @@ router.get("/:id", async (req, res, next) => {
 // router.post("/", isAdminMiddleware, async (req, res, next) => {
   router.post("/", async (req, res, next) => {
   try {
+    console.log('req.body in post products',req.body)
     const newProduct = await Product.create(req.body);
     res.json(newProduct);
   } catch (error) {
