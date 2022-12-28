@@ -7,6 +7,7 @@ import SingleProduct from "./SingleProduct";
 import AllUsers from "./AllUsers";
 import Cart from "./Cart";
 import SignUp from "./SignUp";
+import Checkout from "./Checkout";
 
 class Routess extends React.Component {
   componentDidMount() {
@@ -22,7 +23,8 @@ class Routess extends React.Component {
           <Route path="/products/:productId" element={<SingleProduct />} />
           <Route exact path="/users" element={<AllUsers/>} />
           <Route path="/cart" element={<Cart/>} />
-          <Route path="/signup" element={<SignUp/>} />
+          <Route path="/signup" element={<SignUp/>} /> 
+          <Route path="/checkout" element={<Checkout/>} />
         </Routes>
       </div>
     );
