@@ -42,7 +42,7 @@ export const loginThunk = (formData) => {
     try {
       const { data } = await axios.put("/auth/login", formData);
       dispatch(gotMe(data));
-    //   history.push("/");
+      history.push("/");
     } catch (error) {
       console.error(error);
     }
@@ -53,7 +53,7 @@ export const logOutThunk = () => {
     try {
       await axios.delete("auth/logout");
       dispatch(removeUser());
-    //   history.push("/");
+      history.push("/");
     } catch (error) {
       console.log(error);
     }
@@ -64,14 +64,14 @@ export const singUpUserThunk = (user) => {
     try {
       const { data } = await axios.post("/auth/signup", user);
       dispatch(getUser(data));
-    //   history.push("/");
+      history.push("/");
     } catch (error) {
       console.log(error);
     }
   };
 };
 //reducer
-export const  reducerUser = (state = initialState, action) => {
+export const reducerUser = (state = initialState, action) => {
   switch (action.type) {
     case GET_USER:
       return action.user;

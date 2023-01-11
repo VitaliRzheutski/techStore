@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { useNavigate } from "react-router";
 import { singUpUserThunk } from "../redux/user";
 
 const SignUp = (props) => {
@@ -19,10 +20,10 @@ const SignUp = (props) => {
                         Email
                       </label>
                       <input
-                        className="email"
+                        className="email form-control-lg"
                         name="email"
                         type="text"
-                        className=" form-control-lg"
+                        // className=" form-control-lg"
                       />
                     </div>
                     <div className="form-outline form-dark mb-4">
@@ -85,6 +86,7 @@ const SignUp = (props) => {
   );
 };
 const mapDispatchToProps = (dispatch, ownProps) => {
+  const navigate = useNavigate();
   return {
     async handleSubmit(evt) {
       try {
@@ -98,7 +100,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         await dispatch(
           singUpUserThunk({ email, password, firstName, lastName, address })
         );
-        // ownProps.history.push("/"); //   '/home'
+        navigate("/");
       } catch (error) {
         console.error(error);
       }

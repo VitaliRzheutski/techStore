@@ -12,7 +12,6 @@ const userNotFound = (next) => {
 
 router.put("/login", async (req, res, next) => {
   try {
-    console.log('hit login!!')
     const user = await User.findOne({
       where: {
         email: req.body.email,
@@ -35,7 +34,6 @@ router.put("/login", async (req, res, next) => {
 router.post("/signup", async (req, res, next) => {
   try {
     const user = await User.create(req.body);
-    console.log('user',user)
     if (user) {
       req.session.userId = user.id;
       req.login(user, (err) => (err ? next(err) : res.json(user)));
@@ -49,10 +47,14 @@ router.post("/signup", async (req, res, next) => {
   }
 });
 
-router.delete("/logout", (req, res) => {
-  req.logout();
+router.delete("/logout", (req, res, next) => {
+  req.logout(function (err) {
+    if (err) {
+      return next(err);
+    }
+    res.redirect("/");
+  });
   req.session.destroy();
-  res.redirect("/");
 });
 
 router.get("/me", async (req, res, next) => {
